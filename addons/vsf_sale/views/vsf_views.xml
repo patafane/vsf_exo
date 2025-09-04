@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sale_season_action" model="ir.actions.act_window">
+        <field name="name">Seasons</field>
+        <field name="res_model">sale.season</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="season_view_tree" model="ir.ui.view">
+        <field name="name">season.view.tree</field>
+        <field name="model">sale.season</field>
+        <field name="arch" type="xml">
+            <list string="Season">
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+    <record id="season_view_form" model="ir.ui.view">
+        <field name="name">season.view.form</field>
+        <field name="model">sale.season</field>
+        <field name="arch" type="xml">
+            <form string="Season">
+                <field name="name"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"></field>
+        <field name="arch" type="xml"> 
+            <xpath expr="//group[@name='partner_details']" position="after">
+                <group name="season">
+                    <field name="season_id" string="Season"></field>
+                </group>
+            </xpath>
+        </field>
+    </record>
+    <record id="sale_order_trree" model="ir.ui.view">
+        <field name="name">sale.order.tree.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_tree"></field>
+        <field name="arch" type="xml"> 
+            <xpath expr="//field[@name='invoice_status']" position="after">
+                <field name="season_id" string="Season"></field>
+            </xpath>
+        </field>
+    </record>
+</odoo>

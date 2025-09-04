@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_sale_season"
+          name="Seasons"
+          parent="sale.menu_sale_config"
+          action="sale_season_action"
+          sequence="10"/>
+</odoo>

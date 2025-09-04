@@ -1,0 +1,1 @@
+from . import vsf_account_move
